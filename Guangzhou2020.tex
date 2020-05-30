@@ -7,8 +7,11 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes,positioning,fit}
 
+\setmainfont{Avenir-Black}
+\setCJKmainfont{苹方-简 中粗体}
+
 \begin{document}
-            \begin{tikzpicture}[node distance=48pt, every node/.append style={inner sep=0}]
+            \begin{tikzpicture}[node distance=48pt, every node/.append style={rounded corners, inner sep=2}]
             \coordinate (plc1) {};
             \coordinate [below = of plc1] (plc2) {};
             \coordinate [above left = of plc1] (plc3) {};
@@ -21,26 +24,38 @@
             \coordinate [below = of plc8] (plc10) {};
             
             
-            \draw[blue, thick] (plc9) -- (plc7);
-            \draw[blue, thick] (plc10) -- (plc8);
-            \draw[blue, thick] (plc6) -- (plc7);
-            \draw[blue, thick] (plc5) -- (plc8);
-            \draw[blue, thick] (plc1) to [bend right = 45] (plc6);
-            \draw[blue, thick] (plc2) to [bend left = 45] (plc5);
-            \draw[blue, thick] (plc1) to [bend left = 45] (plc3);
-            \draw[blue, thick] (plc2) to [bend right = 45] (plc4);
-            \draw[blue, thick] (plc3) to [bend right = 90] (plc4);
+            \draw[blue, very thick] (plc9) -- (plc7);
+            \draw[blue, very thick] (plc10) -- (plc8);
+            \draw[blue, very thick] (plc6) -- (plc7);
+            \draw[blue, very thick] (plc5) -- (plc8);
+            \draw[blue, very thick] (plc1) to [bend right = 45] (plc6);
+            \draw[blue, very thick] (plc2) to [bend left = 45] (plc5);
+            \draw[blue, very thick] (plc1) to [bend left = 45] (plc3);
+            \draw[blue, very thick] (plc2) to [bend right = 45] (plc4);
+            \draw[blue, very thick] (plc3) to [bend right = 90] (plc4);
             
-            \node [draw, fill=white] (plc1_word) {某地};
-            \node [below = of plc1, anchor = center, draw, fill=white] (plc2_word) {某地};
-            \node [above left = of plc1, anchor = center, draw, fill=white] (plc3_word) {某地};
-            \node [below left = of plc2, anchor = center, draw, fill=white] (plc4_word) {某地};
-            \node [below right = of plc2, anchor = center, draw, fill=white] (plc5_word) {某地};
-            \node [above right = of plc1, anchor = center, draw, fill=white] (plc6_word) {某地};
-            \node [right = of plc6, anchor = center, draw, fill=white] (plc7_word) {某地};
-            \node [right = of plc5, anchor = center, draw, fill=white] (plc8_word) {某地};
-            \node [above = of plc7, anchor = center, draw, fill=white] (plc9_word) {某地};    
-            \node [below = of plc8, anchor = center, draw, fill=white] (plc10_word) {某地};  
+            \node [draw, very thick, fill=white, align = center] (plc1_num) {G\\04};
+            \node [below = of plc1, anchor = center, draw, very thick, fill=white, align = center] (plc2_num) {G\\07};
+            \node [above left = of plc1, anchor = center, draw, very thick, fill=white, align = center] (plc3_num) {G\\05};
+            \node [below left = of plc2, anchor = center, draw, very thick, fill=white, align = center] (plc4_num) {G\\06};
+            \node [below right = of plc2, anchor = center, draw, very thick, fill=white, align = center] (plc5_num) {G\\08};
+            \node [above right = of plc1, anchor = center, draw, very thick, fill=white, align = center] (plc6_num) {G\\03};
+            \node [right = of plc6, anchor = center, draw, very thick, fill=white, align = center] (plc7_num) {G\\02};
+            \node [right = of plc5, anchor = center, draw, very thick, fill=white, align = center] (plc8_num) {G\\09};
+            \node [above = of plc7, anchor = center, draw, very thick, fill=white, align = center] (plc9_num) {G\\01};   
+            \node [below = of plc8, anchor = center, draw, very thick, fill=white, align = center] (plc10_num) {G\\10};  
+            
+            
+            \node [right = 0 of plc7_num] (plc7_word) {第二}; 
+            \node [right = 0 of plc9_num] (plc9_word) {第一}; 
+            \node [right = 0 of plc10_num] (plc10_word) {第十}; 
+            \node [right = 0 of plc8_num] (plc8_word) {第九}; 
+            \node [right = 0 of plc1_num, yshift=-4] (plc1_word) {第四}; 
+            \node [right = 0 of plc2_num, yshift=4] (plc2_word) {第七}; 
+            \node [left = 0 of plc3_num, yshift=4] (plc3_word) {第五}; 
+            \node [left = 0 of plc4_num, yshift=-4] (plc4_word) {第六}; 
+            \node [below = 0 of plc5_num, align = center, execute at begin node=\setlength{\baselineskip}{0ex}] (plc5_word) {第\\八};
+            \node [above = 0 of plc6_num, align = center, execute at begin node=\setlength{\baselineskip}{0ex}] (plc6_word) {第\\三}; 
 
             
             \end{tikzpicture}
