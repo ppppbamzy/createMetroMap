@@ -13,7 +13,7 @@
 \begin{document}
             \begin{tikzpicture}[node distance=48pt, every node/.append style={rounded corners, inner sep=2}]
             
-            \tikzset{pillbox/.style={anchor = center, draw=brown, very thick, fill=white, align = center}};
+            \tikzset{pillbox/.style={anchor = center, draw=brown, very thick, fill=white, align = center, execute at begin node=\setlength{\baselineskip}{0ex}}};
             \tikzset{tube/.style={brown, line width=4}};
             
             \coordinate (plc1) {};
