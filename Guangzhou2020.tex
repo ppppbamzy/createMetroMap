@@ -8,12 +8,13 @@
 \usetikzlibrary{shapes,positioning,fit}
 
 \setmainfont{Roboto Slab Bold}
+\setmonofont{Roboto Mono Bold}
 \setCJKmainfont{苹方-简 中粗体}
 
 \begin{document}
             \begin{tikzpicture}[node distance=48pt, every node/.append style={rounded corners, inner sep=2}]
             
-            \tikzset{pillbox/.style={text width = 2ex, anchor = center, draw=brown, very thick, fill=white, align = center, execute at begin node=\setlength{\baselineskip}{2ex}}};
+            \tikzset{pillbox/.style={text width = 2.1ex, anchor = center, draw=brown, very thick, fill=white, align = center, execute at begin node=\setlength{\baselineskip}{2ex}}};
             \tikzset{tube/.style={brown, line width=4}};
             
             \coordinate (plc1) {};
@@ -34,16 +35,16 @@
             \draw[tube] (plc5) -- (plc8);
             \draw[tube] (plc3.west) .. controls +(-2,0) and +(-2,0) .. (plc4.west);
             
-            \node [pillbox] (plc1_num) {G\\04};
-            \node [below = of plc1, pillbox] (plc2_num) {G\\07};
-            \node [above left = of plc1, pillbox] (plc3_num) {G\\05};
-            \node [below left = of plc2, pillbox] (plc4_num) {G\\06};
-            \node [below right = of plc2, pillbox] (plc5_num) {G\\08};
-            \node [above right = of plc1, pillbox] (plc6_num) {G\\03};
-            \node [right = of plc6, pillbox] (plc7_num) {G\\02};
-            \node [right = of plc5, pillbox] (plc8_num) {G\\09};
-            \node [above = of plc7, pillbox] (plc9_num) {G\\01};   
-            \node [below = of plc8, pillbox] (plc10_num) {G\\10};  
+            \node [pillbox] (plc1_num) {G\tt\\04};
+            \node [below = of plc1, pillbox] (plc2_num) {G\tt\\07};
+            \node [above left = of plc1, pillbox] (plc3_num) {G\tt\\05};
+            \node [below left = of plc2, pillbox] (plc4_num) {G\tt\\06};
+            \node [below right = of plc2, pillbox] (plc5_num) {G\tt\\08};
+            \node [above right = of plc1, pillbox] (plc6_num) {G\tt\\03};
+            \node [right = of plc6, pillbox] (plc7_num) {G\tt\\02};
+            \node [right = of plc5, pillbox] (plc8_num) {G\tt\\09};
+            \node [above = of plc7, pillbox] (plc9_num) {G\tt\\01};   
+            \node [below = of plc8, pillbox] (plc10_num) {G\tt\\10};  
             
             
             
@@ -74,16 +75,16 @@
             
 
 
-            \node [pillbox] (plc1_num) {G\\04};
-            \node [below = of plc1, pillbox] (plc2_num) {G\\07};
-            \node [above left = of plc1, pillbox] (plc3_num) {G\\05};
-            \node [below left = of plc2, pillbox] (plc4_num) {G\\06};
-            \node [below right = of plc2, pillbox] (plc5_num) {G\\08};
-            \node [above right = of plc1, pillbox] (plc6_num) {G\\03};
-            \node [right = of plc6, pillbox] (plc7_num) {G\\02};
-            \node [right = of plc5, pillbox] (plc8_num) {G\\09};
-            \node [above = of plc7, pillbox] (plc9_num) {G\\01};   
-            \node [below = of plc8, pillbox] (plc10_num) {G\\10};  
+            \node [pillbox] (plc1_num) {G\tt\\04};
+            \node [below = of plc1, pillbox] (plc2_num) {G\tt\\07};
+            \node [above left = of plc1, pillbox] (plc3_num) {G\tt\\05};
+            \node [below left = of plc2, pillbox] (plc4_num) {G\tt\\06};
+            \node [below right = of plc2, pillbox] (plc5_num) {G\tt\\08};
+            \node [above right = of plc1, pillbox] (plc6_num) {G\tt\\03};
+            \node [right = of plc6, pillbox] (plc7_num) {G\tt\\02};
+            \node [right = of plc5, pillbox] (plc8_num) {G\tt\\09};
+            \node [above = of plc7, pillbox] (plc9_num) {G\tt\\01};   
+            \node [below = of plc8, pillbox] (plc10_num) {G\tt\\10};  
             
             \node [right = 0 of plc7_num] (plc7_word) {第二}; 
             \node [right = 0 of plc9_num] (plc9_word) {第一}; 
