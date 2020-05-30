@@ -7,13 +7,13 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes,positioning,fit}
 
-\setmainfont{Avenir-Black}
+\setmainfont{Roboto Slab Bold}
 \setCJKmainfont{苹方-简 中粗体}
 
 \begin{document}
             \begin{tikzpicture}[node distance=48pt, every node/.append style={rounded corners, inner sep=2}]
             
-            \tikzset{pillbox/.style={anchor = center, draw=brown, very thick, fill=white, align = center, execute at begin node=\setlength{\baselineskip}{0ex}}};
+            \tikzset{pillbox/.style={text width = 2ex, anchor = center, draw=brown, very thick, fill=white, align = center, execute at begin node=\setlength{\baselineskip}{2ex}}};
             \tikzset{tube/.style={brown, line width=4}};
             
             \coordinate (plc1) {};
@@ -91,8 +91,8 @@
             \node [right = 0 of plc8_num] (plc8_word) {第九}; 
             \node [right = 0 of plc1_num, yshift=-8] (plc1_word) {第四}; 
             \node [right = 0 of plc2_num, yshift=8] (plc2_word) {第七}; 
-            \node [left = 0 of plc3_num, yshift=4] (plc3_word) {第五}; 
-            \node [left = 0 of plc4_num, yshift=-4] (plc4_word) {第六}; 
+            \node [left = 0 of plc3_num, yshift=6] (plc3_word) {第五}; 
+            \node [left = 0 of plc4_num, yshift=-6] (plc4_word) {第六}; 
             \node [below = 0 of plc5_num, align = center, execute at begin node=\setlength{\baselineskip}{0ex}] (plc5_word) {第\\八};
             \node [above = 0 of plc6_num, align = center, execute at begin node=\setlength{\baselineskip}{0ex}] (plc6_word) {第\\三}; 
 
