@@ -12,6 +12,10 @@
 
 \begin{document}
             \begin{tikzpicture}[node distance=48pt, every node/.append style={rounded corners, inner sep=2}]
+            
+            \tikzset{pillbox/.style={anchor = center, draw=brown, very thick, fill=white, align = center}};
+            \tikzset{tube/.style={brown, line width=4}};
+            
             \coordinate (plc1) {};
             \coordinate [below = of plc1] (plc2) {};
             \coordinate [above left = of plc1] (plc3) {};
@@ -24,67 +28,69 @@
             \coordinate [below = of plc8] (plc10) {};
             
             
-            \draw[blue, very thick] (plc9) -- (plc7);
-            \draw[blue, very thick] (plc10) -- (plc8);
-            \draw[blue, very thick] (plc6) -- (plc7);
-            \draw[blue, very thick] (plc5) -- (plc8);
-%            \draw[blue, very thick] (plc1) to [bend right = 45] (plc6);
-%            \draw[blue, very thick] (plc2) to [bend left = 45] (plc5);
-%            \draw[blue, very thick] (plc1) to [bend left = 45] (plc3);
-%            \draw[blue, very thick] (plc2) to [bend right = 45] (plc4);
-            \draw[blue, very thick] (plc3) to [bend right = 90] (plc4);
+            \draw[tube] (plc9) -- (plc7);
+            \draw[tube] (plc10) -- (plc8);
+            \draw[tube] (plc6) -- (plc7);
+            \draw[tube] (plc5) -- (plc8);
+            \draw[tube] (plc3.west) .. controls +(-2,0) and +(-2,0) .. (plc4.west);
             
-            \node [draw, very thick, fill=white, align = center] (plc1_num) {G\\04};
-            \node [below = of plc1, anchor = center, draw, very thick, fill=white, align = center] (plc2_num) {G\\07};
-            \node [above left = of plc1, anchor = center, draw, very thick, fill=white, align = center] (plc3_num) {G\\05};
-            \node [below left = of plc2, anchor = center, draw, very thick, fill=white, align = center] (plc4_num) {G\\06};
-            \node [below right = of plc2, anchor = center, draw, very thick, fill=white, align = center] (plc5_num) {G\\08};
-            \node [above right = of plc1, anchor = center, draw, very thick, fill=white, align = center] (plc6_num) {G\\03};
-            \node [right = of plc6, anchor = center, draw, very thick, fill=white, align = center] (plc7_num) {G\\02};
-            \node [right = of plc5, anchor = center, draw, very thick, fill=white, align = center] (plc8_num) {G\\09};
-            \node [above = of plc7, anchor = center, draw, very thick, fill=white, align = center] (plc9_num) {G\\01};   
-            \node [below = of plc8, anchor = center, draw, very thick, fill=white, align = center] (plc10_num) {G\\10};  
+            \node [pillbox] (plc1_num) {G\\04};
+            \node [below = of plc1, pillbox] (plc2_num) {G\\07};
+            \node [above left = of plc1, pillbox] (plc3_num) {G\\05};
+            \node [below left = of plc2, pillbox] (plc4_num) {G\\06};
+            \node [below right = of plc2, pillbox] (plc5_num) {G\\08};
+            \node [above right = of plc1, pillbox] (plc6_num) {G\\03};
+            \node [right = of plc6, pillbox] (plc7_num) {G\\02};
+            \node [right = of plc5, pillbox] (plc8_num) {G\\09};
+            \node [above = of plc7, pillbox] (plc9_num) {G\\01};   
+            \node [below = of plc8, pillbox] (plc10_num) {G\\10};  
             
             
             
             \coordinate [below = 0.1 of plc6_num] (below6);
-            \draw[blue, very thick] (plc6) -- (below6);
+            \draw[tube] (plc6) -- (below6);
             \coordinate [right = 0.1 of plc1_num] (right1);
-            \draw[blue, very thick] (plc1) -- (right1);
-            \draw[blue, very thick] (right1) to [bend right = 45] (below6);
+            \draw[tube] (plc1) -- (right1);
+%            \draw[tube] (right1) to [bend right = 45] (below6);
+            \draw[tube] (right1.east) .. controls +(0.5,0) and +(0,-0.5) .. (below6.south);
             \coordinate [below = 0.1 of plc3_num] (below3);
-            \draw[blue, very thick] (plc3) -- (below3);
+            \draw[tube] (plc3) -- (below3);
             \coordinate [left = 0.1 of plc1_num] (left1);
-            \draw[blue, very thick] (plc1) -- (left1);
-            \draw[blue, very thick] (left1) to [bend left = 45] (below3);
+            \draw[tube] (plc1) -- (left1);
+%            \draw[tube] (left1) to [bend left = 45] (below3);
+            \draw[tube] (left1.west) .. controls +(-0.5,0) and +(0,-0.5) .. (below3.south);
             \coordinate [above = 0.1 of plc5_num] (above5);
-            \draw[blue, very thick] (plc5) -- (above5);
+            \draw[tube] (plc5) -- (above5);
             \coordinate [right = 0.1 of plc2_num] (right2);
-            \draw[blue, very thick] (plc2) -- (right2);
-            \draw[blue, very thick] (right2) to [bend left = 45] (above5);
+            \draw[tube] (plc2) -- (right2);
+%            \draw[tube] (right2) to [bend left = 45] (above5);
+            \draw[tube] (right2.east) .. controls +(0.5,0) and +(0,0.5) .. (above5.north);
             \coordinate [above = 0.1 of plc4_num] (above4);
-            \draw[blue, very thick] (plc4) -- (above4);
+            \draw[tube] (plc4) -- (above4);
             \coordinate [left = 0.1 of plc2_num] (left2);
-            \draw[blue, very thick] (plc2) -- (left2);
-            \draw[blue, very thick] (left2) to [bend right = 45] (above4);
+            \draw[tube] (plc2) -- (left2);
+%            \draw[tube] (left2) to [out = 45, in = 45] (above4);
+            \draw[tube] (left2.west) .. controls +(-0.5,0) and +(0,0.5) .. (above4.north);
             
-            \node [draw, very thick, fill=white, align = center] (plc1_num) {G\\04};
-            \node [below = of plc1, anchor = center, draw, very thick, fill=white, align = center] (plc2_num) {G\\07};
-            \node [above left = of plc1, anchor = center, draw, very thick, fill=white, align = center] (plc3_num) {G\\05};
-            \node [below left = of plc2, anchor = center, draw, very thick, fill=white, align = center] (plc4_num) {G\\06};
-            \node [below right = of plc2, anchor = center, draw, very thick, fill=white, align = center] (plc5_num) {G\\08};
-            \node [above right = of plc1, anchor = center, draw, very thick, fill=white, align = center] (plc6_num) {G\\03};
-            \node [right = of plc6, anchor = center, draw, very thick, fill=white, align = center] (plc7_num) {G\\02};
-            \node [right = of plc5, anchor = center, draw, very thick, fill=white, align = center] (plc8_num) {G\\09};
-            \node [above = of plc7, anchor = center, draw, very thick, fill=white, align = center] (plc9_num) {G\\01};   
-            \node [below = of plc8, anchor = center, draw, very thick, fill=white, align = center] (plc10_num) {G\\10}; 
+
+
+            \node [pillbox] (plc1_num) {G\\04};
+            \node [below = of plc1, pillbox] (plc2_num) {G\\07};
+            \node [above left = of plc1, pillbox] (plc3_num) {G\\05};
+            \node [below left = of plc2, pillbox] (plc4_num) {G\\06};
+            \node [below right = of plc2, pillbox] (plc5_num) {G\\08};
+            \node [above right = of plc1, pillbox] (plc6_num) {G\\03};
+            \node [right = of plc6, pillbox] (plc7_num) {G\\02};
+            \node [right = of plc5, pillbox] (plc8_num) {G\\09};
+            \node [above = of plc7, pillbox] (plc9_num) {G\\01};   
+            \node [below = of plc8, pillbox] (plc10_num) {G\\10};  
             
             \node [right = 0 of plc7_num] (plc7_word) {第二}; 
             \node [right = 0 of plc9_num] (plc9_word) {第一}; 
             \node [right = 0 of plc10_num] (plc10_word) {第十}; 
             \node [right = 0 of plc8_num] (plc8_word) {第九}; 
-            \node [right = 0 of plc1_num, yshift=-6] (plc1_word) {第四}; 
-            \node [right = 0 of plc2_num, yshift=6] (plc2_word) {第七}; 
+            \node [right = 0 of plc1_num, yshift=-8] (plc1_word) {第四}; 
+            \node [right = 0 of plc2_num, yshift=8] (plc2_word) {第七}; 
             \node [left = 0 of plc3_num, yshift=4] (plc3_word) {第五}; 
             \node [left = 0 of plc4_num, yshift=-4] (plc4_word) {第六}; 
             \node [below = 0 of plc5_num, align = center, execute at begin node=\setlength{\baselineskip}{0ex}] (plc5_word) {第\\八};
