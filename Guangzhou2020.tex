@@ -1,0 +1,47 @@
+%!TEX program = xelatex
+
+\documentclass[border=1cm]{standalone}
+
+\usepackage{xeCJK}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,positioning,fit}
+
+\begin{document}
+            \begin{tikzpicture}[node distance=48pt, every node/.append style={inner sep=0}]
+            \coordinate (plc1) {};
+            \coordinate [below = of plc1] (plc2) {};
+            \coordinate [above left = of plc1] (plc3) {};
+            \coordinate [below left = of plc2] (plc4) {};
+            \coordinate [below right = of plc2] (plc5) {};
+            \coordinate [above right = of plc1] (plc6) {};
+            \coordinate [right = of plc6] (plc7) {};
+            \coordinate [right = of plc5] (plc8) {};
+            \coordinate [above = of plc7] (plc9) {};    
+            \coordinate [below = of plc8] (plc10) {};
+            
+            
+            \draw[blue, thick] (plc9) -- (plc7);
+            \draw[blue, thick] (plc10) -- (plc8);
+            \draw[blue, thick] (plc6) -- (plc7);
+            \draw[blue, thick] (plc5) -- (plc8);
+            \draw[blue, thick] (plc1) to [bend right = 45] (plc6);
+            \draw[blue, thick] (plc2) to [bend left = 45] (plc5);
+            \draw[blue, thick] (plc1) to [bend left = 45] (plc3);
+            \draw[blue, thick] (plc2) to [bend right = 45] (plc4);
+            \draw[blue, thick] (plc3) to [bend right = 90] (plc4);
+            
+            \node [draw, fill=white] (plc1_word) {某地};
+            \node [below = of plc1, anchor = center, draw, fill=white] (plc2_word) {某地};
+            \node [above left = of plc1, anchor = center, draw, fill=white] (plc3_word) {某地};
+            \node [below left = of plc2, anchor = center, draw, fill=white] (plc4_word) {某地};
+            \node [below right = of plc2, anchor = center, draw, fill=white] (plc5_word) {某地};
+            \node [above right = of plc1, anchor = center, draw, fill=white] (plc6_word) {某地};
+            \node [right = of plc6, anchor = center, draw, fill=white] (plc7_word) {某地};
+            \node [right = of plc5, anchor = center, draw, fill=white] (plc8_word) {某地};
+            \node [above = of plc7, anchor = center, draw, fill=white] (plc9_word) {某地};    
+            \node [below = of plc8, anchor = center, draw, fill=white] (plc10_word) {某地};  
+
+            
+            \end{tikzpicture}
+\end{document}
