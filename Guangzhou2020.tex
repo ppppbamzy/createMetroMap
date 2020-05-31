@@ -12,59 +12,75 @@
 \setCJKmainfont{苹方-简 中粗体}
 
 \begin{document}
-            \begin{tikzpicture}[node distance=48pt, every node/.append style={rounded corners, inner sep=2}]
+\begin{tikzpicture}[every node/.append style={rounded corners, inner sep=2}]
             
-            \tikzset{pillbox/.style={text width = 2.1ex, anchor = center, draw=brown, very thick, fill=white, align = center, execute at begin node=\setlength{\baselineskip}{2ex}}};
-            \tikzset{tube/.style={brown, line width=4}};
-            
-            \coordinate (plc1) {};
-            \coordinate [below = of plc1] (plc2) {};
-            \coordinate [above left = 67.872pt of plc1] (plc3) {};
-            \coordinate [below left = 67.872pt of plc2] (plc4) {};
-            \coordinate [below right = 67.872pt of plc2] (plc5) {};
-            \coordinate [above right = 67.872pt of plc1] (plc6) {};
-            \coordinate [right = of plc6] (plc7) {};
-            \coordinate [right = of plc5] (plc8) {};
-            \coordinate [above = of plc7] (plc9) {};    
-            \coordinate [below = of plc8] (plc10) {};
-            
-            
-            \draw[tube] (plc9) -- (plc7);
-            \draw[tube] (plc10) -- (plc8);
-            \draw[tube] (plc6) -- (plc7);
-            \draw[tube] (plc5) -- (plc8);
-            \draw[tube] (plc3.west) .. controls +(-2,0) and +(-2,0) .. (plc4.west);
-            
-            \node [pillbox] (plc1_num) {G\tt\\04};
-            \node [below = of plc1, pillbox] (plc2_num) {G\tt\\07};
-            \node [above left = 67.872pt of plc1, pillbox] (plc3_num) {G\tt\\05};
-            \node [below left = 67.872pt of plc2, pillbox] (plc4_num) {G\tt\\06};
-            \node [below right = 67.872pt of plc2, pillbox] (plc5_num) {G\tt\\08};
-            \node [above right = 67.872pt of plc1, pillbox] (plc6_num) {G\tt\\03};
-            \node [right = of plc6, pillbox] (plc7_num) {G\tt\\02};
-            \node [right = of plc5, pillbox] (plc8_num) {G\tt\\09};
-            \node [above = of plc7, pillbox] (plc9_num) {G\tt\\01};   
-            \node [below = of plc8, pillbox] (plc10_num) {G\tt\\10};  
-            
-            
+    \tikzset{pillbox/.style={text width = 2.1ex, anchor = center, draw, very thick, fill=white, align = center, execute at begin node=\setlength{\baselineskip}{2ex}}};
+    \tikzset{shupai/.style={align = center, execute at begin node=\setlength{\baselineskip}{2ex}}};
+    \tikzset{tube/.style={line width=6pt}};
+    \tikzset{color1/.style={brown}};
+    \tikzset{box1/.style={draw=brown}};
+    \tikzset{box2/.style={draw=purple}};
+    \tikzset{color2/.style={purple}};
+    \tikzset{testlayout/.style={circle, draw}};
 
-            \draw[tube, rounded corners] (plc4_num) |- (plc2_num);
-            \draw[tube, rounded corners] (plc5_num) |- (plc2_num);
-            \draw[tube, rounded corners] (plc3_num) |- (plc1_num);
-            \draw[tube, rounded corners] (plc6_num) |- (plc1_num);
+    % line 1
+    \coordinate (l1s6);
+    \foreach \dis/\num in {1/7, 2/8, 3/9}
+        \coordinate[right = 2 * \dis of l1s6] (l1s\num);
+    \foreach \dis/\num in {1/5, 2/4, 3/3}
+        \coordinate[left = 2 * \dis of l1s6] (l1s\num);
+    \coordinate[left = 7 of l1s6] (l1c1);
+    \foreach \dis/\num in {0.5/2, 1.5/1}
+        \coordinate[below left = {1.414 * \dis} of l1c1] (l1s\num);
+%    \foreach \num in {1, 2, 3, 4, 5, 6, 7, 8, 9}
+%        \node[testlayout] at (l1s\num) {};
+    \foreach \num in {1, 2, 3, 5, 6, 7, 8, 9}
+        \node[pillbox, box1] (l1s\num_num) at (l1s\num) {G\tt\\0\num};
+    \node[pillbox, box1, left = 0 of l1s4] (l1s4_num) {G\tt\\04};
+    \foreach \l/\n in {1/2, 3/4, 4/5, 5/6, 6/7, 7/8, 8/9}
+        \draw[tube, color1] (l1s\l) -- (l1s\n);
+    \draw[tube, color1, rounded corners] (l1s2) -- (l1c1) -- (l1s3);
+    % 覆盖一遍
+    \foreach \num in {1, 2, 3, 5, 6, 7, 8, 9}
+        \node[pillbox, box1] (l1s\num_num) at (l1s\num) {G\tt\\0\num};
+    \node[pillbox, box1, left = 0 of l1s4] (l1s4_num) {G\tt\\04};
+    \foreach \num in {3, 5, 6, 7, 8, 9}
+        \node[above = 0 of l1s\num_num] (l1s\num_name) {我家};
+    \foreach \num in {1, 2}
+        \node[shupai, above = 0 of l1s\num_num] (l1s\num_name) {我\\家};
+    \node[above = 0 of l1s4_num, xshift = -0.5ex, yshift = 0.3ex] (l1s4_name) {\Large 我駅};
+        
+    % line 2    
+    \coordinate (l2s4) at (l1s4);
+    \node[pillbox, box2, right = 0 of l2s4] (l2s4_num) {H\tt\\04};
+    \coordinate (l2s4) at (l2s4_num);
+    \node[rectangle, sharp corners, draw, very thick, fill=white, fit = (l1s4_num) (l2s4_num)] {};
+    \foreach \dis/\num in {1/3, 2/2, 3/1}
+        \coordinate[above = 2 * \dis of l2s4] (l2s\num);
+    \foreach \dis/\num in {1/5, 2/6}
+        \coordinate[below = 2 * \dis of l2s4] (l2s\num);
+    \coordinate[below right = 3 of l2s6] (l2s7);
+    \foreach \dis/\num in {1/8, 2/9, 3/10}
+        \coordinate[right = 2 * \dis of l2s7] (l2s\num);
+%    \foreach \num in {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+%        \node[testlayout] at (l2s\num) {};
+    \foreach \num in {1, 2, 3, 5, 6, 7, 8, 9}
+        \node[pillbox, box2] (l2s\num_num) at (l2s\num) {H\tt\\0\num};
+    \node[pillbox, box2] (l2s10_num) at (l2s10) {H\tt\\10};
+    \foreach \l/\n in {1/2, 2/3, 3/4, 4/5, 5/6, 7/8, 8/9, 9/10}
+        \draw[tube, color2] (l2s\l) -- (l2s\n);
+    \draw[tube, color2, rounded corners] (l2s6) |- (l2s7);
+    % 覆盖一遍
+    \node[rectangle, sharp corners, draw, very thick, fill=white, fit = (l1s4_num) (l2s4_num)] {};
+    \foreach \num in {1, 2, 3, 4, 5, 6, 7, 8, 9}
+        \node[pillbox, box2] (l2s\num_num) at (l2s\num) {H\tt\\0\num};
+    \node[pillbox, box2] (l2s10) at (l2s10) {H\tt\\10};
+    \node[pillbox, box1, left = 0 of l1s4] (l1s4_num) {G\tt\\04};
+    \foreach \num in {1, 2, 3, 5, 6}
+        \node[right = 0 of l2s\num_num] (l2s\num_name) {我家};
+    \foreach \num in {7, 8, 9, 10}
+        \node[below = 0 of l2s\num_num] (l2s\num_name) {我家};
+     
             
-            
-            \node [right = 0 of plc7_num] (plc7_word) {第二}; 
-            \node [right = 0 of plc9_num] (plc9_word) {第一}; 
-            \node [right = 0 of plc10_num] (plc10_word) {第十}; 
-            \node [right = 0 of plc8_num] (plc8_word) {第九}; 
-            \node [right = 0 of plc1_num, yshift=-8] (plc1_word) {第四}; 
-            \node [right = 0 of plc2_num, yshift=8] (plc2_word) {第七}; 
-            \node [left = 0 of plc3_num, yshift=6] (plc3_word) {第五}; 
-            \node [left = 0 of plc4_num, yshift=-6] (plc4_word) {第六}; 
-            \node [below = 0 of plc5_num, align = center, execute at begin node=\setlength{\baselineskip}{0ex}] (plc5_word) {第\\八};
-            \node [above = 0 of plc6_num, align = center, execute at begin node=\setlength{\baselineskip}{0ex}] (plc6_word) {第\\三}; 
-
-            
-            \end{tikzpicture}
+\end{tikzpicture}
 \end{document}
