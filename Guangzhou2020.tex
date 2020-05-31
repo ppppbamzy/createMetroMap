@@ -19,10 +19,10 @@
             
             \coordinate (plc1) {};
             \coordinate [below = of plc1] (plc2) {};
-            \coordinate [above left = of plc1] (plc3) {};
-            \coordinate [below left = of plc2] (plc4) {};
-            \coordinate [below right = of plc2] (plc5) {};
-            \coordinate [above right = of plc1] (plc6) {};
+            \coordinate [above left = 67.872pt of plc1] (plc3) {};
+            \coordinate [below left = 67.872pt of plc2] (plc4) {};
+            \coordinate [below right = 67.872pt of plc2] (plc5) {};
+            \coordinate [above right = 67.872pt of plc1] (plc6) {};
             \coordinate [right = of plc6] (plc7) {};
             \coordinate [right = of plc5] (plc8) {};
             \coordinate [above = of plc7] (plc9) {};    
@@ -37,54 +37,22 @@
             
             \node [pillbox] (plc1_num) {G\tt\\04};
             \node [below = of plc1, pillbox] (plc2_num) {G\tt\\07};
-            \node [above left = of plc1, pillbox] (plc3_num) {G\tt\\05};
-            \node [below left = of plc2, pillbox] (plc4_num) {G\tt\\06};
-            \node [below right = of plc2, pillbox] (plc5_num) {G\tt\\08};
-            \node [above right = of plc1, pillbox] (plc6_num) {G\tt\\03};
+            \node [above left = 67.872pt of plc1, pillbox] (plc3_num) {G\tt\\05};
+            \node [below left = 67.872pt of plc2, pillbox] (plc4_num) {G\tt\\06};
+            \node [below right = 67.872pt of plc2, pillbox] (plc5_num) {G\tt\\08};
+            \node [above right = 67.872pt of plc1, pillbox] (plc6_num) {G\tt\\03};
             \node [right = of plc6, pillbox] (plc7_num) {G\tt\\02};
             \node [right = of plc5, pillbox] (plc8_num) {G\tt\\09};
             \node [above = of plc7, pillbox] (plc9_num) {G\tt\\01};   
             \node [below = of plc8, pillbox] (plc10_num) {G\tt\\10};  
             
             
-            
-            \coordinate [below = 0.1 of plc6_num] (below6);
-            \draw[tube] (plc6) -- (below6);
-            \coordinate [right = 0.1 of plc1_num] (right1);
-            \draw[tube] (plc1) -- (right1);
-%            \draw[tube] (right1) to [bend right = 45] (below6);
-            \draw[tube] (right1.east) .. controls +(0.5,0) and +(0,-0.5) .. (below6.south);
-            \coordinate [below = 0.1 of plc3_num] (below3);
-            \draw[tube] (plc3) -- (below3);
-            \coordinate [left = 0.1 of plc1_num] (left1);
-            \draw[tube] (plc1) -- (left1);
-%            \draw[tube] (left1) to [bend left = 45] (below3);
-            \draw[tube] (left1.west) .. controls +(-0.5,0) and +(0,-0.5) .. (below3.south);
-            \coordinate [above = 0.1 of plc5_num] (above5);
-            \draw[tube] (plc5) -- (above5);
-            \coordinate [right = 0.1 of plc2_num] (right2);
-            \draw[tube] (plc2) -- (right2);
-%            \draw[tube] (right2) to [bend left = 45] (above5);
-            \draw[tube] (right2.east) .. controls +(0.5,0) and +(0,0.5) .. (above5.north);
-            \coordinate [above = 0.1 of plc4_num] (above4);
-            \draw[tube] (plc4) -- (above4);
-            \coordinate [left = 0.1 of plc2_num] (left2);
-            \draw[tube] (plc2) -- (left2);
-%            \draw[tube] (left2) to [out = 45, in = 45] (above4);
-            \draw[tube] (left2.west) .. controls +(-0.5,0) and +(0,0.5) .. (above4.north);
-            
 
-
-            \node [pillbox] (plc1_num) {G\tt\\04};
-            \node [below = of plc1, pillbox] (plc2_num) {G\tt\\07};
-            \node [above left = of plc1, pillbox] (plc3_num) {G\tt\\05};
-            \node [below left = of plc2, pillbox] (plc4_num) {G\tt\\06};
-            \node [below right = of plc2, pillbox] (plc5_num) {G\tt\\08};
-            \node [above right = of plc1, pillbox] (plc6_num) {G\tt\\03};
-            \node [right = of plc6, pillbox] (plc7_num) {G\tt\\02};
-            \node [right = of plc5, pillbox] (plc8_num) {G\tt\\09};
-            \node [above = of plc7, pillbox] (plc9_num) {G\tt\\01};   
-            \node [below = of plc8, pillbox] (plc10_num) {G\tt\\10};  
+            \draw[tube, rounded corners] (plc4_num) |- (plc2_num);
+            \draw[tube, rounded corners] (plc5_num) |- (plc2_num);
+            \draw[tube, rounded corners] (plc3_num) |- (plc1_num);
+            \draw[tube, rounded corners] (plc6_num) |- (plc1_num);
+            
             
             \node [right = 0 of plc7_num] (plc7_word) {第二}; 
             \node [right = 0 of plc9_num] (plc9_word) {第一}; 
