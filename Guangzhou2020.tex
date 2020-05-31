@@ -22,6 +22,7 @@
     \tikzset{box2/.style={draw=purple}};
     \tikzset{color2/.style={purple}};
     \tikzset{testlayout/.style={circle, draw}};
+    \tikzset{inter/.style={rectangle, sharp corners, draw, very thick, fill=gray}};
 
     % line 1
     \coordinate (l1s6);
@@ -54,7 +55,7 @@
     \coordinate (l2s4) at (l1s4);
     \node[pillbox, box2, right = 0 of l2s4] (l2s4_num) {H\tt\\04};
     \coordinate (l2s4) at (l2s4_num);
-    \node[rectangle, sharp corners, draw, very thick, fill=white, fit = (l1s4_num) (l2s4_num)] {};
+    \node[inter, fit = (l1s4_num) (l2s4_num)] {};
     \foreach \dis/\num in {1/3, 2/2, 3/1}
         \coordinate[above = 2 * \dis of l2s4] (l2s\num);
     \foreach \dis/\num in {1/5, 2/6}
@@ -71,7 +72,7 @@
         \draw[tube, color2] (l2s\l) -- (l2s\n);
     \draw[tube, color2, rounded corners] (l2s6) |- (l2s7);
     % 覆盖一遍
-    \node[rectangle, sharp corners, draw, very thick, fill=white, fit = (l1s4_num) (l2s4_num)] {};
+    \node[inter, fit = (l1s4_num) (l2s4_num)] {};
     \foreach \num in {1, 2, 3, 4, 5, 6, 7, 8, 9}
         \node[pillbox, box2] (l2s\num_num) at (l2s\num) {H\tt\\0\num};
     \node[pillbox, box2] (l2s10) at (l2s10) {H\tt\\10};
